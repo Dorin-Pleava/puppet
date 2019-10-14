@@ -130,9 +130,8 @@ Puppet::Type.type(:user).provide :windows_adsi do
       warning _("The user account '%s' is locked out; puppet will not reset the password" % @resource[:name])
     elsif user.expired?
       warning _("The user account '%s' is expired; puppet will not reset the password" % @resource[:name])
-    else
-      user.password = value
     end
+      user.password = value
   end
 
   def uid
